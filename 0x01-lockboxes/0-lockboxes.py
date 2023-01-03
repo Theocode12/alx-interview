@@ -14,4 +14,4 @@ def canUnlockAll(boxes):
             check_list.extend(boxes[key])  # append keys to current keys(queue)
             if len(index_checker) == len_boxes:
                 return True
-    return False
+    return True if len_boxes == 1 else False
