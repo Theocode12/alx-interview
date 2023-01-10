@@ -7,7 +7,7 @@ def minOperations(n: int) -> int:
     text = 'H'
     special_num = {2, 3}
 
-    if type(n) is not int or n < 1 or (isPrime(n) and (n not in special_num)):
+    if n <= 1:
         return 0
 
     cp = copy(text)
@@ -24,7 +24,6 @@ def minOperations(n: int) -> int:
         else:
             text = paste(cp, text)
             op += 1
-
     return op
 
 
