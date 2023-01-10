@@ -8,7 +8,7 @@ def minOperations(n: int) -> int:
     cp = ''
     pt = ''
 
-    if n < 1:
+    if n <= 1:
         return 0
 
     if isPrime(n):
