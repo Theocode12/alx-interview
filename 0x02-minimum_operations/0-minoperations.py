@@ -5,8 +5,6 @@
 def minOperations(n: int) -> int:
     """Minimum number of operations needed to get n H characters"""
     text = 'H'
-    cp = ''
-    pt = ''
     special_num = {2, 3}
 
     if type(n) is not int or n < 1 or (isPrime(n) and (n not in special_num)):
