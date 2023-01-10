@@ -8,7 +8,7 @@ def minOperations(n: int) -> int:
     cp = ''
     pt = ''
 
-    if type(n) is not int or n < 1 or isPrime(n):
+    if type(n) is not int or n < 1 or (isPrime(n) and n != 2):
         return 0
 
     cp = copy(text)
