@@ -12,7 +12,7 @@ def minOperations(n: int) -> int:
         return 0
 
     if isPrime(n):
-        return n
+        return 0
 
     cp = copy(text)
     text = paste(cp, text)
