@@ -24,6 +24,10 @@ try:
             for status_code in sorted(status_dict.keys()):
                 res += "\n{}: {}".format(status_code, status_dict[status_code])
             print(res)
+    res = "File size: {}".format(file_size)
+    for status_code in sorted(status_dict.keys()):
+        res += "\n{}: {}".format(status_code, status_dict[status_code])
+    print(res)
 except KeyboardInterrupt:
     res = "File size: {}".format(file_size)
     for status_code in sorted(status_dict.keys()):
