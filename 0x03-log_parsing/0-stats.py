@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""A module that neatly returns log data"""
 import sys
 import re
 
@@ -9,10 +10,8 @@ count, file_size = 0, 0
 try:
     for line in sys.stdin:
         count += 1
-        regex = r"[\d{1,3}\s\[:\]\.-]*\"[A-Z\s\/a-z]"
-        regex += r"*\d{3}\s[A-Z]*\/1.1\" ([\w\d]*) ([\d]*)"
+        regex = r"^\d.*\s\-\s\[\d*.*\]\s\"GET.*\"\s(\d*)\s(\d*)$"
         data = re.search(regex, line)
-
         s_code, f_size = data.groups()
         file_size += int(f_size)
         if status_dict.get(s_code):
@@ -25,10 +24,9 @@ try:
             for status_code in sorted(status_dict.keys()):
                 res += "\n{}: {}".format(status_code, status_dict[status_code])
             print(res)
-
 except KeyboardInterrupt:
     res = "File size: {}".format(file_size)
     for status_code in sorted(status_dict.keys()):
         res += "\n{}: {}".format(status_code, status_dict[status_code])
     print(res)
-    raise KeyboardInterrupt
+    raise
