@@ -11,16 +11,13 @@ try:
     for line in sys.stdin:
         count += 1
         try:
-            regex = r"^\d.*\s\-\s\[\d*.*\]\s\"GET.*\"\s(\d*)\s(\d*)$"
-            data = re.search(regex, line)
-            s_code, f_size = data.groups()
+            data = line.split()
+            s_code, f_size = data[-2], data[-1]
             file_size += int(f_size)
             if status_dict.get(s_code):
                 status_dict[s_code] += 1
             elif s_code in status_codes:
                 status_dict[s_code] = 1
-            else:
-                file_size -= int(f_size)
         except Exception:
             pass
         if count == 10:
