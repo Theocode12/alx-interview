@@ -18,6 +18,8 @@ try:
             status_dict[s_code] += 1
         elif s_code in status_codes:
             status_dict[s_code] = 1
+        else:
+            file_size -= int(f_size)
         if count == 10:
             count = 0
             res = "File size: {}".format(file_size)
