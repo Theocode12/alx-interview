@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """A module that checks if a unicode is valid"""
-from typing import List
 
 
-def validUTF8(data: List[int]) -> bool:
+def validUTF8(data: list) -> bool:
     """return true if a unicode is valid else false"""
     # keep track if we are at the beginning of a character
     checks = 0
