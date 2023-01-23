@@ -29,16 +29,8 @@ def validUTF8(data: list) -> bool:
             flag = False
             break
 
-        # elif ones > 1 and checks != 0:
-        #     flag = False
-        #     break
-
         elif ones > 1 and checks == 0:
             checks = ones - 1
-
-        # elif ones == 1 and checks == 0:
-        #     flag = False
-        #     break
 
         else:
             # keeps track of the number of bytes remaining
