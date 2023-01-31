@@ -53,18 +53,16 @@ def check_solution(array, row, col):
     """Tries to place the queens where they won't conflict"""
     if row < len(array):
         if not array[0][col]:
-            array[0][col] = 1
+            array[0][col] = 1  # sets the first row with a queen
 
         for e_col in range(len(array)):
-            # print("Before is safe:", array)
             if is_safe(array, row, e_col):
-                array[row][e_col] = 1
-                # print("After is safe:", array)
+                array[row][e_col] = 1  # set a queen on a row if safe
                 check_solution(deepcopy(array), row + 1, col)
-                # print("current_row : {}, About to switch to {}".format(row, row + 1))
                 if row == len(array) - 1:
                     print_solution(array)
                 else:
+                    # if solution is not feasible, remove queen
                     array[row][e_col] = 0
 
 
