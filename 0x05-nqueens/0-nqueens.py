@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 """A module that solves the N-queens Problem"""
 
-from typing import List
 from copy import deepcopy
 import sys
 
 
-def build_array(n: int) -> List[List[int]]:
+def build_array(n: int):
     """Builds an array from a given number"""
     array = []
     if n >= 4:
@@ -19,7 +18,7 @@ def build_array(n: int) -> List[List[int]]:
     return array
 
 
-def is_safe(array: List[List[int]], row: int, col: int) -> bool:
+def is_safe(array, row: int, col: int) -> bool:
     """Checks if a spot on the chessboard is safe"""
 
     # check if the current column doesn't contain any queens
@@ -50,7 +49,7 @@ def is_safe(array: List[List[int]], row: int, col: int) -> bool:
     return True
 
 
-def check_solution(array: List[List[int]], row, col):
+def check_solution(array, row, col):
     """Tries to place the queens where they won't conflict"""
     if row < len(array):
         if not array[0][col]:
@@ -69,14 +68,14 @@ def check_solution(array: List[List[int]], row, col):
                     array[row][e_col] = 0
 
 
-def search_Nqueens(array: List[List[int]], col: int) -> None:
+def search_Nqueens(array, col: int) -> None:
     """search for solutions starting from the first column"""
     if col < len(array):
         check_solution(deepcopy(array), 1, col)
         search_Nqueens(array, col + 1)
 
 
-def print_solution(array: List[List[int]]):
+def print_solution(array):
     """Print the solution in the right format"""
     sol_set = []
     for i in range(len(array)):
