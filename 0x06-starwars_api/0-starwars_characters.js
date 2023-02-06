@@ -20,7 +20,7 @@ async function main () {
   const filmNumber = argv.slice(2)[0];
   const url = `https://swapi-api.alx-tools.com/api/films/${filmNumber}/`;
   const result = await requestPromise(url);
-  for (const person of result.characters) {
+  for (let person of result.characters) {
     person = await requestPromise(person);
     console.log(person.name);
   }
