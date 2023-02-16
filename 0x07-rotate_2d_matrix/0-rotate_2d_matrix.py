@@ -49,7 +49,7 @@ def rotate_2d_matrix(matrix):
     """
     i = j = 0
     n = len(matrix)
-    for diag in range(len(matrix) / 2):
+    for diag in range(int(len(matrix) / 2)):
         rotate_full_row(matrix, i, j, [i, n - 1 - i, n - 1 - i, i])
         i += 1
         j += 1
