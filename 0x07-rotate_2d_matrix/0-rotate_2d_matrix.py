@@ -3,13 +3,11 @@
 A module that rotates a 2D nxn Matrix
 """
 
-from typing import List
+
 import math
 
 
-def rotate_column(
-    matrix: List[List[int]], i: int, j: int, ls_of_sizes: List[int]
-) -> None:
+def rotate_column(matrix, i: int, j: int, ls_of_sizes) -> None:
     """Moves the column in a circle. More docs to come"""
     len_mat = len(matrix) - 1
     current_row = matrix[i][j]
@@ -33,9 +31,7 @@ def rotate_column(
         current_row = next_row
 
 
-def rotate_full_row(
-    matrix: List[List[int]], i: int, j: int, ls_sizes: List[int]
-) -> None:
+def rotate_full_row(matrix, i: int, j: int, ls_sizes) -> None:
     """Rotates a row 90 degs. More docs to come"""
     ## WE could make an abstraction using the length of the list and reducing by 2
     ## each time we iterate till we have a less than or equal to one
