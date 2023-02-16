@@ -33,8 +33,6 @@ def rotate_column(matrix, i: int, j: int, ls_of_sizes) -> None:
 
 def rotate_full_row(matrix, i: int, j: int, ls_sizes) -> None:
     """Rotates a row 90 degs. More docs to come"""
-    ## WE could make an abstraction using the length of the list and reducing by 2
-    ## each time we iterate till we have a less than or equal to one
     iteration = get_number_of_iterations(len(matrix), i)
     for row in range(iteration):
         rotate_column(matrix, i, j, ls_sizes)
