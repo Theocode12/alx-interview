@@ -4,9 +4,6 @@ A module that rotates a 2D nxn Matrix
 """
 
 
-import math
-
-
 def rotate_column(matrix, i: int, j: int, ls_of_sizes) -> None:
     """Moves the column in a circle. More docs to come"""
     len_mat = len(matrix) - 1
@@ -52,7 +49,7 @@ def rotate_2d_matrix(matrix):
     """
     i = j = 0
     n = len(matrix)
-    for diag in range(math.floor(len(matrix) / 2)):
+    for diag in range(len(matrix) / 2):
         rotate_full_row(matrix, i, j, [i, n - 1 - i, n - 1 - i, i])
         i += 1
         j += 1
