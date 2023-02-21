@@ -20,7 +20,7 @@ def makeChange(coins: list, total: int) -> int:
     """
 
     current_total = 0
-    if total:
+    if total < 1:
         num_of_coins = 0
         while coins:
             max_coin = max(coins)
