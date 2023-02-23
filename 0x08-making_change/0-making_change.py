@@ -35,6 +35,7 @@ def makeChange(coins: list, total: int) -> int:
                 elif (max_coin + current_total > total) and (
                     min_coin + current_total > total
                 ):
+                    num_of_coins += 1
                     break
                 elif max_coin + current_total > total:
                     new_coins.pop(new_coins.index(max_coin))
