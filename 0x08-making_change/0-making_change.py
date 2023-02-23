@@ -43,6 +43,6 @@ def makeChange(coins: list, total: int) -> int:
                     num_of_coins += 1
                     current_total += max_coin
             new_coins = sorted(coins, reverse=True)[i + 1:]
-        if num_of_coins > 0:
+        if not coins or num_of_coins > 0:
             return -1
     return 0
