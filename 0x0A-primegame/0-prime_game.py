@@ -61,8 +61,6 @@ def isWinner(x: int, nums: list):
                 cached_prime.add(i)
         winner = "Ben" if Ben >= Maria else "Maria"
         find_round_winner(players, winner)
-        # if num + 1 == len(nums):
-        #     break
     return find_winner(players)
 
 
@@ -114,36 +112,6 @@ def isPrime(n, cache):
     while i * i <= n:
         if n % i == 0 or n % (i + 2) == 0:
             return False
-        i = i + 6
+        i = i + 6 
 
     return True
-
-
-def isPrime2(n):
-    print("Not supposed to be Here")
-    # Corner cases
-    if n <= 1:
-        return False
-    if n <= 3:
-        return True
-
-    # This is checked so that we can skip
-    # middle five numbers in below loop
-    if n % 2 == 0 or n % 3 == 0:
-        return False
-
-    i = 5
-    while i * i <= n:
-        if n % i == 0 or n % (i + 2) == 0:
-            return False
-        i = i + 6
-
-    return True
-
-
-if __name__ == "__main__":
-    print(isWinner(1, [100]))
-    # isWinner(1, [2, 5, 1, 4, 3])
-    # isWinner(1, [5])
-    # isWinner(1, [10])
-    # isWinner(1, [1])
