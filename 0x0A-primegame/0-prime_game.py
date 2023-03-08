@@ -42,15 +42,13 @@ def isWinner(x: int, nums: list):
     Calculates the winner after a sets of rounds played
     """
     cached_multiples = set()
-    cached_prime = set()
+    cached_prime = cache_prime(max(nums))
     players = {"Maria": 0, "Ben": 0}
 
     for num in range(x):
         flag = Maria = Ben = 0
         for i in range(2, nums[num] + 1):
-            if (i not in cached_multiples) and (
-                (i in cached_prime) or isPrime(i)
-            ):
+            if (i not in cached_multiples) and ((i in cached_prime)):
                 if flag == 0:
                     find_mutiples(i, nums[num], cached_multiples)
                     Maria += 1
@@ -66,6 +64,14 @@ def isWinner(x: int, nums: list):
         # if num + 1 == len(nums):
         #     break
     return find_winner(players)
+
+
+def cache_prime(max_num):
+    cache = set()
+    for i in range(2, max_num + 1):
+        if isPrime(i, cache):
+            cache.add(i)
+    return cache
 
 
 def find_winner(players):
@@ -92,7 +98,29 @@ def find_mutiples(i: int, num: int, cached_multiples: set):
         cached_multiples.add(i)
 
 
-def isPrime(n):
+def isPrime(n, cache):
+    # Corner cases
+    if n <= 1 or n in cache:
+        return False
+    if n <= 3:
+        return True
+
+    # This is checked so that we can skip
+    # middle five numbers in below loop
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i = i + 6
+
+    return True
+
+
+def isPrime2(n):
+    print("Not supposed to be Here")
     # Corner cases
     if n <= 1:
         return False
@@ -114,7 +142,7 @@ def isPrime(n):
 
 
 if __name__ == "__main__":
-    print(isWinner(1, [5]))
+    print(isWinner(1, [100]))
     # isWinner(1, [2, 5, 1, 4, 3])
     # isWinner(1, [5])
     # isWinner(1, [10])
