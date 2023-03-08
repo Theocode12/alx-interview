@@ -66,7 +66,6 @@ def isWinner(x: int, nums: list):
                 cached_prime.add(i)
         winner = "Ben" if Ben >= Maria else "Maria"
         find_round_winner(players, winner)
-    print(players)
     return find_winner(players)
 
 
@@ -80,7 +79,6 @@ def find_winner(players):
 
 
 def find_round_winner(players: dict, winner: str):
-    print(winner)
     players[winner] += 1
 
 
