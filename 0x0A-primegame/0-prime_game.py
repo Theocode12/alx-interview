@@ -41,13 +41,16 @@ def isWinner(x: int, nums: list):
     """
     Calculates the winner after a sets of rounds played
     """
+    if type(nums) != list or nums != int:
+        return
+
     cached_multiples = set()
     cached_prime = set()
     players = {"Maria": 0, "Ben": 0}
 
-    for num in nums:
+    for num in range(x):
         flag = Maria = Ben = 0
-        for i in range(2, num + 1):
+        for i in range(2, nums[num] + 1):
             if (i not in cached_multiples) and (
                 (i in cached_prime) or isPrime(i)
             ):
@@ -63,6 +66,7 @@ def isWinner(x: int, nums: list):
                 cached_prime.add(i)
         winner = "Ben" if Ben >= Maria else "Maria"
         find_round_winner(players, winner)
+    print(players)
     return find_winner(players)
 
 
@@ -76,6 +80,7 @@ def find_winner(players):
 
 
 def find_round_winner(players: dict, winner: str):
+    print(winner)
     players[winner] += 1
 
 
@@ -108,7 +113,7 @@ def isPrime(n):
 
 
 if __name__ == "__main__":
-    isWinner(1, [2, 5, 1, 4, 3])
-    isWinner(1, [5])
-    isWinner(1, [10])
-    isWinner(1, [1])
+    print(isWinner(0, []))
+    # isWinner(1, [5])
+    # isWinner(1, [10])
+    # isWinner(1, [1])
