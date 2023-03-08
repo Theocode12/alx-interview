@@ -111,7 +111,7 @@ def isPrime(n):
 
 
 if __name__ == "__main__":
-    print(isWinner(2, [2,5]))
+    print(isWinner(2, [2, 5]))
     # isWinner(1, [2, 5, 1, 4, 3])
     # isWinner(1, [5])
     # isWinner(1, [10])
