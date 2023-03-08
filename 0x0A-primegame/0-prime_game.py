@@ -36,12 +36,11 @@ Ben wins because there are no prime numbers for Maria to choose
 Result: Ben has the most wins
 """
 
-
 def isWinner(x: int, nums: list):
     """
     Calculates the winner after a sets of rounds played
     """
-    if type(nums) != list or nums != int:
+    if type(nums) != list or type(x) != int:
         return
 
     cached_multiples = set()
@@ -50,7 +49,7 @@ def isWinner(x: int, nums: list):
 
     for num in nums:
         flag = Maria = Ben = 0
-        for i in range(2, nums + 1):
+        for i in range(2, num + 1):
             if (i not in cached_multiples) and (
                 (i in cached_prime) or isPrime(i)
             ):
@@ -108,3 +107,10 @@ def isPrime(n):
         i = i + 6
 
     return True
+
+
+if __name__ == "__main__":
+    isWinner(1, [2, 5, 1, 4, 3])
+    isWinner(1, [5])
+    isWinner(1, [10])
+    isWinner(1, [1])
