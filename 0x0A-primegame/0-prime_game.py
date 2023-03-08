@@ -48,9 +48,9 @@ def isWinner(x: int, nums: list):
     cached_prime = set()
     players = {"Maria": 0, "Ben": 0}
 
-    for num in nums:
+    for num in range(x):
         flag = Maria = Ben = 0
-        for i in range(2, num + 1):
+        for i in range(2, nums[num] + 1):
             if (i not in cached_multiples) and (
                 (i in cached_prime) or isPrime(i)
             ):
@@ -111,7 +111,8 @@ def isPrime(n):
 
 
 if __name__ == "__main__":
-    isWinner(1, [2, 5, 1, 4, 3])
-    isWinner(1, [5])
-    isWinner(1, [10])
-    isWinner(1, [1])
+    print(isWinner(2, [2,5]))
+    # isWinner(1, [2, 5, 1, 4, 3])
+    # isWinner(1, [5])
+    # isWinner(1, [10])
+    # isWinner(1, [1])
