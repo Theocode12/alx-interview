@@ -88,10 +88,8 @@ def find_round_winner(players: dict, winner: str):
 def find_mutiples(i: int, num: int, cached_multiples: set):
     multiple = i
     while (
-        i <= num
-        and (i + multiple < num)
-        and (i + multiple) not in cached_multiples
-    ):
+        i <= num and (i + multiple < num) and
+            (i + multiple) not in cached_multiples):
         i += multiple
         cached_multiples.add(i)
 
