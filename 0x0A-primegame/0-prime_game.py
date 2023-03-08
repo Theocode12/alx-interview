@@ -52,19 +52,19 @@ def isWinner(x: int, nums: list):
                 (i in cached_prime) or isPrime(i)
             ):
                 if flag == 0:
-                    find_mutiples(i, num, cached_multiples)
+                    find_mutiples(i, nums[num], cached_multiples)
                     Maria += 1
                     flag = 1
 
                 elif flag == 1:
-                    find_mutiples(i, num, cached_multiples)
+                    find_mutiples(i, nums[num], cached_multiples)
                     Ben += 1
                     flag = 0
                 cached_prime.add(i)
         winner = "Ben" if Ben >= Maria else "Maria"
         find_round_winner(players, winner)
-        if num + 1 == len(nums):
-            break
+        # if num + 1 == len(nums):
+        #     break
     return find_winner(players)
 
 
@@ -83,7 +83,7 @@ def find_round_winner(players: dict, winner: str):
 
 def find_mutiples(i: int, num: int, cached_multiples: set):
     multiple = i
-    while i <= num and (i + multiple < num):
+    while i <= num and (i + multiple < num) and (i + multiple) not in cached_multiples:
         i += multiple
         cached_multiples.add(i)
 
@@ -110,7 +110,7 @@ def isPrime(n):
 
 
 if __name__ == "__main__":
-    print(isWinner(3, [2, 5]))
+    print(isWinner(1, [5]))
     # isWinner(1, [2, 5, 1, 4, 3])
     # isWinner(1, [5])
     # isWinner(1, [10])
