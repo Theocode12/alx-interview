@@ -112,6 +112,6 @@ def isPrime(n, cache):
     while i * i <= n:
         if n % i == 0 or n % (i + 2) == 0:
             return False
-        i = i + 6 
+        i = i + 6
 
     return True
